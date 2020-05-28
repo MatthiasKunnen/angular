@@ -27,6 +27,9 @@ node_repositories(
         "12.14.1-windows_amd64": ("node-v12.14.1-win-x64.zip", "node-v12.14.1-win-x64", "1f96ccce3ba045ecea3f458e189500adb90b8bc1a34de5d82fc10a5bf66ce7e3"),
     },
     node_version = "12.14.1",
+    node_urls = [
+        "https://nodejs.org/dist/v{version}/{filename}",
+    ],
     package_json = ["//:package.json"],
 )
 
