@@ -303,6 +303,17 @@ describe('FormControl', () => {
          expect(c.errors).toEqual({'async': true});
        }));
 
+    it('should emit status on initial value validation complete', fakeAsync(() => {
+         const c = new FormControl('value', null!, asyncValidator('expected'));
+         const logger: string[] = [];
+
+         c.statusChanges.subscribe(status => {
+           logger.push(status);
+         });
+         tick();
+         expect(logger).toEqual(['INVALID']);
+       }));
+
     it('should rerun the validator when the value changes', fakeAsync(() => {
          const c = new FormControl('value', null!, asyncValidator('expected'));
 
